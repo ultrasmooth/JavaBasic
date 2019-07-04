@@ -54,3 +54,31 @@ String getName()；获取完整类名，包含包名+类名
 
 
 
+## 元注解
+
+#### @Target
+
+* 作用：用来标识注解的使用位置
+  value属性值定义在ElementType枚举类中，常用值如下：
+  TYPE            注解可以作用在类和接口上
+  FIELD           注解可以作用在成员变量上
+  METHOD      注解可以作用在成员方法上
+  PARAMETER      注解可以作用在方法参数上
+  CONSTRUCTOR   注解可以作用在构造方法上
+  //使用方法例子
+  @Target({ElementType.METHOD,ElementType.TYPE})
+
+#### @Retention
+
+* 作用: 用来标识注解的生命周期(有效范围)
+* 源码阶段:注解只存在源码中,编译产生的Class文件中就不存在了,
+* 字节码阶段:注解在源码中,字节码文件中都存在,运行阶段就不存在了,默认值
+* 运行时阶段:注解存在三个阶段:源码,字节码,运行时
+
+```java
+//Value属性值定义RetentionPolicy枚举中,可用值如下:
+	SOURCE
+	CLASS
+	RUNTIME
+```
+
